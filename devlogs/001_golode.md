@@ -27,6 +27,6 @@ saved and added player to the main scene. After a few bugs was able to get the p
 
 ![001_player_on_screen](./media/001_player_on_screen.png)
 
-![player moving](./media/001_player_moving.mp4)
+![player moving](./media/001_player_moving.gif)
 
 Next get the player to move around without issue.
