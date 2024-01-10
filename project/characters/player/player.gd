@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 # CHARACTER-VALUES
 const UP : Vector2 = Vector2(0, -1)
-const GRAVITY : float = 20
+const GRAVITY : float = 0
 const SPEED : float = 100
 const RUNNING_SPEED : float = 200
 const JUMP_HEIGHT : float = -500
@@ -13,7 +13,7 @@ const JUMP_HEIGHT : float = -500
 var current_speed : float = SPEED
 
 # CHARACTER
-@onready var character = $SPRITE
+@onready var character = $Sprite2D
 @onready var characterAnimation = $AnimationPlayer
 
 func _physics_process(_delta):

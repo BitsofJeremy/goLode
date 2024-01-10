@@ -34,6 +34,8 @@ levels
  |-level00
  |-level01
 
+![000_game_organization](./media/000_game_organization)
+
 Copy the example game assets into Godot directories.
 
 Grab the player script from this template and put it in the player character directory:
@@ -52,25 +54,6 @@ Drop them in the gui directory.
 Setup the project to a resolution of 320x240
   Wasn't sure on this and will figure it out as I get the player in the game
 
-Setup the keymap [screenshot_keymap](screenshot_keymap)
+Setup the keymap [000_keymap_setup](./media/000_keymap_setup)
 
 Save and push for now.
-
-3. **Goals Achieved:**
-
-4. **Challenges Faced:**
-
-5. **Decisions Made:**
-
-6. **Screenshots and Media:**
-
-7. **Code Snippets:**
-
-8. **Feedback and Reflection:**
-
-9. **Next Steps:**
-
-10. **Gratitude and Shoutouts:**
-
-11. **Personal Notes:**
-

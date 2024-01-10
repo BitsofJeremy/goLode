@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://oon8r8vm1a7r"]
+
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_xhb00"]
+[ext_resource type="Texture2D" uid="uid://dtj2psag2x25h" path="res://assets/images/Theme/APPLE2/runner.png" id="2_25aac"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8sh5"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_xhb00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_25aac")
+hframes = 9
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_y8sh5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
