@@ -54,6 +54,8 @@ Drop them in the gui directory.
 Setup the project to a resolution of 320x240
   Wasn't sure on this and will figure it out as I get the player in the game
 
-Setup the keymap [000_keymap_setup](./media/000_keymap_setup.png)
+Setup the keymap
+
+![000_keymap_setup](./media/000_keymap_setup.png)
 
 Save and push for now.
