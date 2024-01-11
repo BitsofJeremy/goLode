@@ -4,10 +4,8 @@ extends CharacterBody2D
 
 # CHARACTER-VALUES
 const UP : Vector2 = Vector2(0, -1)
-const GRAVITY : float = 0
-const SPEED : float = 100
-const RUNNING_SPEED : float = 200
-const JUMP_HEIGHT : float = -500
+const GRAVITY : float = 40
+const SPEED : float = 200
 
 # CHARACTER-MOTION
 var current_speed : float = SPEED
@@ -29,30 +27,18 @@ func _physics_process(_delta):
 	else:
 		velocity.x = 0
 
-	# CHARACTER-JUMP
-	if is_on_floor():
-		if Input.is_action_just_pressed("UP"):
-			velocity.y = JUMP_HEIGHT
-		elif Input.is_action_just_pressed("SPACE"):
-			velocity.y = JUMP_HEIGHT
-	else:
-		if velocity.y < 0:
-			characterAnimation.play("JUMP")
-		else:
-			characterAnimation.play("FALL")
-
+	# CHARACTER FALL OR CLIMB
+	#if is_on_floor():
+		#if velocity.y < 0:
+			#characterAnimation.play("CLIMB")
+		#else:
+			#characterAnimation.play("FALL")
+		
 	# CHARACTER-ANIMATION
-	if velocity.x != 0 and current_speed == SPEED and is_on_floor():
-		characterAnimation.play("WALK")
-	elif velocity.x != 0 and current_speed == RUNNING_SPEED and is_on_floor():
+	if velocity.x != 0:
+		print("running")
 		characterAnimation.play("RUN")
-	elif velocity.x == 0 and is_on_floor():
+	elif velocity.x == 0:
 		characterAnimation.play("IDLE")
-
-	# CHARACTER-RUN
-	if Input.is_action_pressed("SHIFT"):
-		current_speed = RUNNING_SPEED
-	else:
-		current_speed = SPEED
 		
 	move_and_slide()

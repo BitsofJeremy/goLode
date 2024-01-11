@@ -29,4 +29,26 @@ saved and added player to the main scene. After a few bugs was able to get the p
 
 ![player moving](./media/001_player_moving.gif)
 
-Next get the player to move around without issue.
+### Next get the player to move around without issue.
+
+Set the game resolution to 640x480
+
+Goal: Get the play to at least run...
+
+I had the following uncommented and that was stopping the animation from playing:
+
+```python
+  # CHARACTER FALL OR CLIMB
+  #if is_on_floor():
+    #if velocity.y < 0:
+      #characterAnimation.play("CLIMB")
+    #else:
+      #characterAnimation.play("FALL")
+```
+After commenting it out and saving, my player can run, HOORAY!
+
+
+![player moving](./media/001_player_running.gif)
+
+
+
