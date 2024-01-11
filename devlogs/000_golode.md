@@ -2,7 +2,7 @@ Devlog: 000
 
 1. **Date and Session Information:**
 
-09-01-2024
+January 9th, 2024
 
 Getting started.
 
@@ -34,7 +34,7 @@ levels
  |-level00
  |-level01
 
-![000_game_organization](./media/000_game_organization)
+![000_game_organization](./media/000_game_organization.png)
 
 Copy the example game assets into Godot directories.
 
@@ -54,6 +54,6 @@ Drop them in the gui directory.
 Setup the project to a resolution of 320x240
   Wasn't sure on this and will figure it out as I get the player in the game
 
-Setup the keymap [000_keymap_setup](./media/000_keymap_setup)
+Setup the keymap [000_keymap_setup](./media/000_keymap_setup.png)
 
 Save and push for now.
