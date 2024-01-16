@@ -2,7 +2,7 @@ Devlog: 002
 
 1. **Date and Session Information:**
 
-January 13th 2024
+January 16th 2024
 
 Clean up game assets
 
