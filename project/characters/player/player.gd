@@ -1,44 +1,80 @@
 extends CharacterBody2D
 
-# CODE FOR GODOT 4.2.1 - SK7LL
+signal life_changed
+signal dead
 
-# CHARACTER-VALUES
-const UP : Vector2 = Vector2(0, -1)
-const GRAVITY : float = 40
-const SPEED : float = 200
+const run_speed = 400
+const gravity = 850
 
-# CHARACTER-MOTION
-var current_speed : float = SPEED
+# Player State
+enum {IDLE, RUN, BOOST, DEAD}
 
-# CHARACTER
-@onready var character = $Sprite2D
-@onready var characterAnimation = $AnimationPlayer
+var state
+var anim
+var new_anim
+var life = 3
 
-func _physics_process(_delta):
-	velocity.y += GRAVITY
 
-	# CHARACTER-INPUT
-	if Input.is_action_pressed("RIGHT"):
-		velocity.x = current_speed
-		character.flip_h = false
-	elif Input.is_action_pressed("LEFT"):
-		velocity.x = -current_speed
-		character.flip_h = true
-	else:
-		velocity.x = 0
+func _ready():
+	change_state(IDLE)
 
-	# CHARACTER FALL OR CLIMB
-	#if is_on_floor():
-		#if velocity.y < 0:
-			#characterAnimation.play("CLIMB")
-		#else:
-			#characterAnimation.play("FALL")
-		
-	# CHARACTER-ANIMATION
-	if velocity.x != 0:
-		print("running")
-		characterAnimation.play("RUN")
-	elif velocity.x == 0:
-		characterAnimation.play("IDLE")
-		
+func start(pos):
+	position = pos
+	show()
+	life = 3
+	emit_signal('life_changed', life)
+	change_state(IDLE)
+
+func change_state(new_state):
+	state = new_state
+	print("State changing to: ", state)
+	match state:
+		IDLE:
+			new_anim = 'IDLE'
+		RUN:
+			new_anim = 'RUN'
+		BOOST:
+			new_anim = 'RUN'
+		DEAD:
+			hide()
+			emit_signal('dead')
+
+func get_input():
+	velocity.x = 0
+	var right = Input.is_action_pressed('RIGHT')
+	var left = Input.is_action_pressed('LEFT')
+	var down = Input.is_action_pressed('DOWN')
+	var up = Input.is_action_pressed("UP")
+	var dig_left = Input.is_action_just_pressed("DIG_LEFT")
+	var dig_right = Input.is_action_just_pressed("DIG_RIGHT")
+	# TODO add a BOOST speed
+	var boost =  Input.is_action_pressed("BOOST")
+	
+	if right:
+		velocity.x += run_speed
+		$Sprite2D.flip_h = false
+	if left:
+		velocity.x -= run_speed
+		$Sprite2D.flip_h = true
+
+	if state in [IDLE] and velocity.x != 0:
+		change_state(RUN)
+	if state == RUN and velocity.x == 0:
+		change_state(IDLE)
+
+
+func _physics_process(delta):
+	velocity.y += gravity * delta
+	get_input()
+	if new_anim != anim:
+		anim = new_anim
+		$AnimationPlayer.play(anim)
+
+	set_velocity(velocity)
+	set_up_direction(Vector2(0, -1))
 	move_and_slide()
+	velocity = velocity
+
+	# Fall down hole
+	if position.y > 780:
+		change_state(DEAD)
