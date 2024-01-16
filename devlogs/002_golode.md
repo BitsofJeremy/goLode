@@ -18,12 +18,14 @@ Also need to organize it for easier searching while developing.
 
 Images organized in a new way:
 
+```
 assets
   |-images
     |-player
     |-ui
     |-baddie
     |-objects
+```
 
 I just am going with just the Apple theme from the repo as that is what I remember playing back in the day.
 
@@ -36,7 +38,7 @@ https://soundcloud.com/abstraction/abstraction-ludum-dare-28-6
 
 I added BOOST to the keymap, and edited the others to make more sense for later playing.
 
-![screenshot](./media/002_keymap_update.jpg)
+![screenshot](./media/002_keymap_update.png)
 
 I changed out the player script to add a state machine.
 This is for future coding when I implement a ladder climbing and rope grappling features.
