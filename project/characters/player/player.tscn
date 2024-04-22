@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://oon8r8vm1a7r"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xhb00"]
-[ext_resource type="Texture2D" uid="uid://dtj2psag2x25h" path="res://assets/images/Theme/APPLE2/runner.png" id="2_25aac"]
+[ext_resource type="Texture2D" uid="uid://5noucm8mgr3k" path="res://assets/images/player/runner.png" id="2_a3srp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8sh5"]
 radius = 16.0
@@ -136,7 +136,7 @@ _data = {
 script = ExtResource("1_xhb00")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_25aac")
+texture = ExtResource("2_a3srp")
 hframes = 9
 vframes = 3
 

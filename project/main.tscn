@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://gpa2orv510pp"]
 
 [ext_resource type="PackedScene" uid="uid://oon8r8vm1a7r" path="res://characters/player/player.tscn" id="1_fgwbu"]
-[ext_resource type="Texture2D" uid="uid://cofwhesw6dy0" path="res://assets/images/Theme/APPLE2/block.png" id="2_t661x"]
+[ext_resource type="Texture2D" uid="uid://bpbvph5cbnq2a" path="res://assets/images/objects/block.png" id="2_t661x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hq8e2"]
-size = Vector2(40.35, 31)
+size = Vector2(25.95, 31)
 
 [node name="Main" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(283.5, 366.5)
+position = Vector2(139.5, 366.5)
 scale = Vector2(20, 1)
 shape = SubResource("RectangleShape2D_hq8e2")
 
 [node name="Block" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(289, 372)
-scale = Vector2(20, 1)
+position = Vector2(143.5, 372)
+scale = Vector2(12.725, 1)
 texture = ExtResource("2_t661x")
 
 [node name="player" parent="." instance=ExtResource("1_fgwbu")]
